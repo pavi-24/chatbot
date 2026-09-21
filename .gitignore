@@ -1,0 +1,23 @@
+# Secrets
+.env
+*.env
+
+# Java / Maven
+target/
+*.class
+
+# Android/Gradle
+.gradle/
+/local.properties
+**/build/
+*.apk
+*.aab
+captures/
+.externalNativeBuild/
+.cxx/
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+.vscode/
