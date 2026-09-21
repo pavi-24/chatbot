@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: pavi-ai-chatbot
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/pavi_ai}
+    username: ${DATABASE_USERNAME:pavi}
+    password: ${DATABASE_PASSWORD:pavi}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+server:
+  port: ${PORT:8080}
