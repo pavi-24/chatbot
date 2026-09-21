@@ -1,0 +1,1 @@
+package com.pavithran.aichat.dto; import jakarta.validation.constraints.NotBlank; import java.util.UUID; public record ChatRequest(UUID conversationId,@NotBlank String deviceId,@NotBlank String message){}
