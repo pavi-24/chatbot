@@ -1,0 +1,6 @@
+plugins { id 'com.android.application' }
+android { namespace 'com.pavithran.aichat'; compileSdk 35
+ defaultConfig { applicationId 'com.pavithran.aichat'; minSdk 26; targetSdk 35; versionCode 1; versionName '1.0.0'; buildConfigField 'String','API_BASE_URL','"http://10.0.2.2:8080/"' }
+ buildTypes { debug { applicationIdSuffix '.debug' } release { minifyEnabled false; buildConfigField 'String','API_BASE_URL','"https://REPLACE_WITH_DEPLOYED_BACKEND/"'; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),'proguard-rules.pro' } }
+}
+dependencies { implementation 'androidx.appcompat:appcompat:1.7.1'; implementation 'com.google.android.material:material:1.13.0'; implementation 'androidx.recyclerview:recyclerview:1.4.0'; implementation 'com.squareup.retrofit2:retrofit:2.11.0'; implementation 'com.squareup.retrofit2:converter-gson:2.11.0' }
