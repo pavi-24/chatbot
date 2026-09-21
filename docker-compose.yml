@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: pavi_ai
+      POSTGRES_USER: pavi
+      POSTGRES_PASSWORD: pavi
+    ports: ["5432:5432"]
+    volumes: ["pavi_ai_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pavi -d pavi_ai"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  backend:
+    build: ./backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgres:5432/pavi_ai
+      DATABASE_USERNAME: pavi
+      DATABASE_PASSWORD: pavi
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      PORT: 8080
+    ports: ["8080:8080"]
+volumes:
+  pavi_ai_data:
