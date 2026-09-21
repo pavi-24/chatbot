@@ -1,0 +1,1 @@
+package com.pavithran.aichat.repo; import com.pavithran.aichat.model.Conversation; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface ConversationRepository extends JpaRepository<Conversation,UUID>{Optional<Conversation> findByIdAndDeviceId(UUID id,String deviceId);}
